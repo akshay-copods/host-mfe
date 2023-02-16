@@ -42,9 +42,15 @@ module.exports = (env, argv) => {
       }),
       new ModuleFederationPlugin({
         name: 'container',
+        filename: 'remoteEntry.js',
         remotes: {
+          container: "container@http://localhost:3000/remoteEntry.js",
           remote: 'remote@http://localhost:3001/remoteEntry.js',
+          pricing:'pricing@http://localhost:3002/remoteEntry.js',
         //   app2: 'app2@http://localhost:3002/remoteEntry.js',
+        },
+        exposes: {
+          "./store": "./src/store",
         },
         shared: {
           ...deps,
