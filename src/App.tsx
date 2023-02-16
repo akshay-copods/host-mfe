@@ -29,7 +29,9 @@ function App() {
         </div>
       </div>
       <div className="bg-black text-gray-200 h-full flex items-center justify-center gap-4">
-        {!isLoggedIn && <h1>Welcome to Stealth SaaS! Please Login</h1>}
+        {!isLoggedIn && (
+          <h1 className="text-2xl">Welcome to Stealth SaaS! Please Login</h1>
+        )}
         <Suspense fallback={<h1>Signing In</h1>}>
           {isLoggedIn && (
             <div className="flex flex-col gap-4">
